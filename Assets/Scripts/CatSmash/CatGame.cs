@@ -47,6 +47,9 @@ public class CatGame : MonoBehaviour
 
     AudioSource sfx;
     AudioSource purr;
+    AudioSource music;
+    [SerializeField] AudioClip musicClip;
+    [SerializeField] float musicVolume = 0.01f;
     [SerializeField] AudioClip hitClip;
     [SerializeField] AudioClip breakClip;
     [SerializeField] AudioClip swishClip;
@@ -84,11 +87,17 @@ public class CatGame : MonoBehaviour
         var sources = GetComponents<AudioSource>();
         sfx = sources.Length > 0 ? sources[0] : gameObject.AddComponent<AudioSource>();
         purr = sources.Length > 1 ? sources[1] : gameObject.AddComponent<AudioSource>();
+        music = sources.Length > 2 ? sources[2] : gameObject.AddComponent<AudioSource>();
         sfx.playOnAwake = false;
         purr.playOnAwake = false;
+        music.playOnAwake = false;
         sfx.spatialBlend = 0f;
         purr.spatialBlend = 0f;
+        music.spatialBlend = 0f;
+        music.loop = true;
+        music.priority = 0;
         if (hitClip == null) BuildAudio();
+        PlayMusic();
         CountRoom();
     }
 
@@ -238,6 +247,16 @@ public class CatGame : MonoBehaviour
     public void StopPurr()
     {
         if (purr != null) purr.Stop();
+    }
+
+    void PlayMusic()
+    {
+        if (music == null || musicClip == null) return;
+        music.clip = musicClip;
+        music.loop = true;
+        music.volume = musicVolume;
+        music.pitch = 1f;
+        if (!music.isPlaying) music.Play();
     }
 
     public void PlayHit(bool rage) { Play(hitClip, rage ? 0.7f : 0.45f, Random.Range(0.9f, 1.15f)); }

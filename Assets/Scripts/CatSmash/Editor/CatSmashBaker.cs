@@ -166,10 +166,14 @@ public static class CatSmashBaker
         var game = gameGo.AddComponent<CatGame>();
         var sfx = gameGo.AddComponent<AudioSource>();
         var purrSource = gameGo.AddComponent<AudioSource>();
+        var musicSource = gameGo.AddComponent<AudioSource>();
         sfx.playOnAwake = false;
         purrSource.playOnAwake = false;
+        musicSource.playOnAwake = false;
+        musicSource.loop = true;
         sfx.spatialBlend = 0f;
         purrSource.spatialBlend = 0f;
+        musicSource.spatialBlend = 0f;
 
         var so = new SerializedObject(game);
         so.FindProperty("balance").objectReferenceValue = balance;
@@ -177,6 +181,7 @@ public static class CatSmashBaker
         so.FindProperty("cam").objectReferenceValue = Camera.main;
         so.FindProperty("cat").objectReferenceValue = catGo.GetComponent<CatPlayer>();
         so.FindProperty("human").objectReferenceValue = humanGo.GetComponent<CouchHuman>();
+        so.FindProperty("musicClip").objectReferenceValue = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/musicClip.mp3");
         so.FindProperty("hitClip").objectReferenceValue = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Hit.wav");
         so.FindProperty("breakClip").objectReferenceValue = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Break.wav");
         so.FindProperty("swishClip").objectReferenceValue = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Swish.wav");
