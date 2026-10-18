@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0127623e708191b4590452e2f0bc690d, type: 3}
+  m_Name: SmashBalance
+  m_EditorClassIdentifier: Assembly-CSharp::SmashBalance
+  levelXp: 00000000280000009600000054010000
+  levelHints:
+  - Smash the small stuff
+  - Medium objects unlocked
+  - Big objects unlocked
+  - Everything breaks
+  rageReadyHint: "RAGE FULL — hit hard"
+  baseSpeed: 5.1
+  speedPerLevel: 0.28
+  growPerLevel: 0.07
+  petRange: 1.8
+  petDuration: 2.35
+  attackCooldown: 0.2
+  rageCooldown: 0.4
+  attackReach: 0.62
+  rageReach: 0.85
+  attackRadius: 0.6
+  rageRadius: 1.2
+  attackForce: 2.5
+  rageForce: 5.4
+  lunge: 0.1
+  rageLunge: 0.26
+  blockedForceScale: 0.28
+  rageDamage: 2
+  ragePerHit: 0.1
+  ragePerExtra: 0.07
+  rageSwingCap: 0.36
+  rageOnBlock: 0.05
